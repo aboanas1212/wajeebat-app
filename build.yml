@@ -1,0 +1,45 @@
+
+name: Build Android APK
+
+on: [push, pull_request]
+
+jobs:
+  build_android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          cd MuslimDutiesApp
+          npm install
+
+      - name: Install Expo CLI
+        run: npm install -g expo-cli
+
+      - name: Login to Expo (if needed for private projects or specific features)
+        # This step is optional. For public projects or basic builds, it might not be necessary.
+        # If you have a private Expo project or use specific features requiring authentication,
+        # uncomment the following lines and set EXPO_TOKEN as a GitHub Secret.
+        # run: expo login -p $EXPO_TOKEN
+        # env:
+        #   EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: echo "Skipping Expo login for public project build."
+
+      - name: Build Android APK
+        run: |
+          cd MuslimDutiesApp
+          expo build:android --type apk --non-interactive
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: MuslimDutiesApp/*.apk

@@ -20,8 +20,9 @@ jobs:
     - name: Install EAS CLI
       run: npm install -g eas-cli
 
-    - name: Initialize EAS Project
-      run: eas project:init
+    - name: Initialize EAS Project Forcefully
+      run: |
+        echo "y" | eas project:init
       env:
         EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 

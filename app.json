@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "واجبات الفرد المسلم",
-    "slug": "MuslimDutiesApp",
+    "name": "wajeebat-app",
+    "slug": "wajeebat-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,13 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.yourcompany.muslimdutiesapp"
+      "package": "com.aboanas.wajeebat"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "859c251d-b8d4-4bb5-8f6a-f01f03f75e2a"
+      }
     }
   }
 }
